@@ -1,0 +1,21 @@
+item_list = record {
+    items: list<string>;
+}
+
+sso_action = enum {
+    usersign;
+    loginsys;
+    resignsys;
+}
+
+sso_items = interface +c {
+    # For the iOS / Android demo
+    dealtask(order: sso_action, items: item_list);
+    static create_with_listener(listener: textbox_listener): sso_items;
+
+    
+}
+
+textbox_listener = interface +j +o {
+    update(items: item_list);
+}
